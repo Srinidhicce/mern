@@ -11,8 +11,15 @@ const static =express.static("static");
 app.use("/",static);
 // Define a route for /hi
 //app.get('/hi', (req, res) =>{//without action and method=post
+
+app.get("/hi",(req,res)=>{
+    console.log(req.query)
+    res.json(req.query)
+    });
+
 app.post('/hi', (req, res) => {
     console.log(req.body);
+   
     res.json({
         name:req.body.name,
         description:req.body.description,
@@ -26,6 +33,13 @@ app.post('/hi', (req, res) => {
     // Send a JSON response with extracted phone number
    
 
+
+    /*({
+        name:req.query.name,
+        description:req.query.description,
+        date:req.query.date,
+        amount:req.query.amount
+    })});*/
 
 // Start the server
 app.listen(3000, () => {
