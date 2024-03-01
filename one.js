@@ -41,7 +41,15 @@ app.post('/hi', (req, res) => {
         amount:req.query.amount
     })});*/
 
-// Start the server
+// Start the serve
+app.get("/todos",async(req,res)=>{
+    const response=await fetch("https://jsonplaceholder.typicode.com/todos")
+    const todos=await response.json()
+    res.json(todos)
+  });
 app.listen(3000, () => {
     console.log("app running on port 3000");
 });
+/*app.get("/todos",async(req,res)=>{
+    const 
+});*/ 
